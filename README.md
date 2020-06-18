@@ -10,6 +10,10 @@ get-jay-chou-music-flac -num 100 -pop 周杰伦 -coo
 同样的如果你想得到比如王力宏的音乐，只需要将`-pop 周杰伦`改成 `-pop 王力宏`
 
 理论上你不实用姓名搜索，搜索具体的歌名也可以出现。
+## 下载位置
+
+https://github.com/shgopher/get-jay-chou-music-flac/releases
+
 ## HERE
 |项目|介绍|
 |:---:|:---:|
