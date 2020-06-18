@@ -9,6 +9,7 @@ import (
 	"math"
 	"net/http"
 	"os"
+	"path/filepath"
 	"strings"
 	"sync"
 )
@@ -115,7 +116,10 @@ func putOut() {
 	}()
 	wg3 := new(sync.WaitGroup)
 	wg3.Add(32)
-	f, err := os.Create(people+"_"+"music.csv")
+	fii,_ := os.Getwd()
+	fii,_ = filepath.Split(fii)
+	fmt.Println(fii)
+	f, err := os.Create(fii+people+"_"+"music.csv")
 	if err != nil {
 		glog.Error(err)
 	}
