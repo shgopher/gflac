@@ -1,3 +1,4 @@
 .text
 .DS_Store
 .idea
+node_module
