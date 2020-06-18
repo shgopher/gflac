@@ -1,5 +1,6 @@
 # get-jay-chou-music-flac
 得到周杰伦的flac的音乐
+
 当你下载了文件后主义要给权限 `chmod +x ./get-jay-chou-music-flac_[mac|linux]`
 ```bash
 get-jay-chou-music-flac -num 100 -pop 周杰伦 -coo 
