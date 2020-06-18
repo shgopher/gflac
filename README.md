@@ -1,6 +1,11 @@
 # get-jay-chou-music-flac
 得到周杰伦的flac的音乐
 
+[安装使用视频讲解 youtube](https://www.youtube.com/watch?v=RYdAtgvcpzY)
+
+[安装使用视频讲解 bilibili](https://www.bilibili.com/video/BV1qk4y1z77K/)
+
+
 当你下载了文件后主义要给权限 `chmod +x ./get-jay-chou-music-flac_[mac|linux]`
 ```bash
  get-jay-chou-music-flac -num 100 -pop 周杰伦 -coo 
