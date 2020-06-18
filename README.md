@@ -3,7 +3,7 @@
 
 当你下载了文件后主义要给权限 `chmod +x ./get-jay-chou-music-flac_[mac|linux]`
 ```bash
-get-jay-chou-music-flac -num 100 -pop 周杰伦 -coo 
+ get-jay-chou-music-flac -num 100 -pop 周杰伦 -coo 
 ```
 > 因为此网站有可能会限制登陆 如果你遇到无法下载的情况你可以打开这个网站 https://www.52flac.com/  随便找到一个音乐的下载的地方
 这个地方如果可以下载会出现百度网盘的地址，如果不能就说明你需要扫码了（上面自动会出现扫码的二维码）这个时候你只需要扫码关注 然后回复
@@ -12,9 +12,12 @@ get-jay-chou-music-flac -num 100 -pop 周杰伦 -coo
 同样的如果你想得到比如王力宏的音乐，只需要将`-pop 周杰伦`改成 `-pop 王力宏`
 
 理论上你不实用姓名搜索，搜索具体的歌名也可以出现。
-## 下载位置
+## 下载
 
 https://github.com/shgopher/get-jay-chou-music-flac/releases
+
+或者你是go的使用者
+`go get -u github.com/shgopher/get-jay-chou-music-flac`
 
 ## HERE
 |项目|介绍|
