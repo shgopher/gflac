@@ -118,7 +118,7 @@ func putOut() {
 	wg3.Add(32)
 	fii,_ := os.Getwd()
 	fii,_ = filepath.Split(fii)
-	fmt.Println(fii)
+	fmt.Println("输出路径：",fii)
 	f, err := os.Create(fii+people+"_"+"music.csv")
 	if err != nil {
 		glog.Error(err)
