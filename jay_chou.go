@@ -23,7 +23,7 @@ var (
 
 func init() {
 	// if need
-	flag.StringVar(&cookieValue, "coo", "", "cookie")
+	flag.StringVar(&cookieValue, "coo", "flac2020", "cookie")
 
 	flag.StringVar(&people, "peo", "周杰伦", "the artist of the music which you want to get")
 	flag.IntVar(&getURLNumber, "num", 100, "the number of geting music")
