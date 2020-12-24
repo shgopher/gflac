@@ -1,5 +1,5 @@
 # gflac
-得到周杰伦的flac的音乐
+得到flac无损音乐的音乐
 
 [安装使用视频讲解 youtube](https://www.youtube.com/watch?v=RYdAtgvcpzY)
 
