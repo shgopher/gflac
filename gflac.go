@@ -10,6 +10,7 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
+	"regexp"
 	"strings"
 	"sync"
 )
@@ -34,7 +35,7 @@ func init() {
 func main() {
 	fmt.Println("开始任务🐬")
 	putOut()
-	fmt.Println("任务完成☕️🔥")
+	fmt.Printf("任务完成,输出%s的音乐共计%d首歌曲\n",people,getURLNumber)
 }
 
 // get url address
@@ -57,7 +58,7 @@ func getDownloadAddress(url string, downLoadAddress chan string, wg *sync.WaitGr
 }
 
 // get baidu pan address
-func getBaiduPanAddress(downloadAddress string, outputurl chan string) {
+func getBaiduPanAddress(downloadAddress string, outputurl chan []string) {
 
 	ce := strings.Split(downloadAddress, "/")
 	a := ce[:len(ce)-2]
@@ -75,14 +76,22 @@ func getBaiduPanAddress(downloadAddress string, outputurl chan string) {
 	}); err != nil {
 		glog.Error(err)
 	}
+	pool := make([]string,2)
+	// 去得到百度的url
 	c.OnHTML(".con", func(e *colly.HTMLElement) {
 		if e.Index == 1 {
-			outputurl <- e.DOM.Text()
+			pool[0]  = e.DOM.Text()
 		}
+	})
+	//去得到歌名
+	c.OnHTML("h1", func(e *colly.HTMLElement) {
+		re := regexp.MustCompile("《.+》")
+		pool[1] = re.FindString(e.Text)
 	})
 	if err := c.Visit(downloadAddress); err != nil {
 		glog.Error(err)
 	}
+	outputurl <- pool
 }
 
 // put address
@@ -99,7 +108,7 @@ func putOut() {
 		wg.Wait()
 		close(downLoadAddress)
 	}()
-	d := make(chan string)
+	d := make(chan []string)
 	wg2 := new(sync.WaitGroup)
 	wg2.Add(32)
 	for i := 0; i < 32; i++ {
@@ -125,14 +134,15 @@ func putOut() {
 	}
 	w := csv.NewWriter(f)
 	defer w.Flush()
-	w.Write([]string{"内容", "歌手"})
+	w.Write([]string{"内容", "歌手","歌名"})
 	for i := 0; i < 32; i++ {
 		go func() {
 			defer wg3.Done()
 			for k := range d {
 				if err := w.Write([]string{
-					k,
+					k[0],
 					people,
+					k[1],
 				}); err != nil {
 					glog.Error(err)
 				}
