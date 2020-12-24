@@ -1,4 +1,4 @@
-module github.com/shgopher/get-jay-chou-music-flac
+module github.com/shgopher/gflac
 
 go 1.14
 
