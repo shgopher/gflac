@@ -21,11 +21,14 @@
 理论上你不实用姓名搜索，搜索具体的歌名也可以出现。
 ## 下载
 
-https://github.com/shgopher/gflac/releases
+```bash
+git clone https://github.com/shgopher/gflac
 
-或者你是go的使用者
-`go get -u github.com/shgopher/gflac`
+cd gflac
 
+go build
+
+```
 ## HERE
 |项目|介绍|
 |:---:|:---:|
